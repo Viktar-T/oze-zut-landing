@@ -1,0 +1,22 @@
+export const metadata = {
+	title: 'dr hab. inż. Adam Koniuszy – Katedra Inżynierii Odnawialnych Źródeł Energii',
+	description: 'Profil kierownika Katedry Inżynierii Odnawialnych Źródeł Energii – dr hab. inż. Adama Koniuszego.',
+};
+
+export default function AdamKoniuszyPage() {
+	return (
+		<article aria-labelledby="adam-koniuszy-heading">
+			<h1 id="adam-koniuszy-heading">dr hab. inż. Adam Koniuszy, kierownik</h1>
+			<p>
+				Biogram, publikacje oraz kluczowe osiągnięcia naukowe kierownika katedry zostaną wkrótce zaprezentowane.
+				Przygotowujemy informacje o prowadzonych projektach, obszarach badań oraz zaangażowaniu w rozwój kierunków
+				kształcenia w zakresie OZE.
+			</p>
+		</article>
+	);
+}
+
+
+
+
+

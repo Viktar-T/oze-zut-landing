@@ -1,0 +1,47 @@
+export const metadata = {
+	title: 'Współpraca – Katedra Inżynierii Odnawialnych Źródeł Energii',
+	description: 'Dowiedz się, w jaki sposób nawiązać współpracę z Katedrą Inżynierii Odnawialnych Źródeł Energii.',
+};
+
+export default function CollaborationPage() {
+	return (
+		<>
+			<article className="section" aria-labelledby="collaboration-heading">
+				<h1 id="collaboration-heading">Współpraca</h1>
+				<p>
+					Łączymy naukę z praktyką poprzez partnerstwa z przemysłem, uczelniami i instytucjami finansującymi rozwój
+					technologii odnawialnych źródeł energii.
+				</p>
+			</article>
+
+			<section className="section" aria-labelledby="industry-heading">
+				<h2 id="industry-heading">Kooperacja z przemysłem</h2>
+				<p>
+					Realizujemy projekty B+R, konsultacje eksperckie i audyty energetyczne dla firm poszukujących rozwiązań
+					niskoemisyjnych. Zespół katedry wspiera analizę technologii, prototypowanie oraz wdrożenia pilotażowe.
+				</p>
+			</section>
+
+			<section className="section" aria-labelledby="universities-heading">
+				<h2 id="universities-heading">Współpraca akademicka</h2>
+				<p>
+					Partnerstwa z krajowymi i zagranicznymi uczelniami obejmują wymianę studentów, wspólne granty badawcze oraz
+					organizację wydarzeń popularyzujących odnawialne źródła energii.
+				</p>
+			</section>
+
+			<section className="section" aria-labelledby="partners-heading">
+				<h2 id="partners-heading">Sponsorzy i partnerzy</h2>
+				<p>
+					Zapraszamy instytucje finansujące, samorządy i fundacje do wspierania projektów edukacyjnych oraz
+					infrastruktury laboratoryjnej. Oferujemy przejrzyste modele współpracy i ekspozycję marki w ramach
+					realizowanych inicjatyw.
+				</p>
+			</section>
+		</>
+	);
+}
+
+
+
+

@@ -1,0 +1,40 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Katedra Inżynierii Odnawialnych Źródeł Energii',
+	description = 'Aktualności, laboratoria i projekty Katedry Inżynierii Odnawialnych Źródeł Energii ZUT.',
+} = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="pl_PL" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<title>{title}</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	</head>
+	<body>
+		<Navbar />
+		<main id="main-content">
+			<div class="container page-content">
+				<slot />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+

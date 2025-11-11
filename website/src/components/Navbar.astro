@@ -1,0 +1,114 @@
+---
+const equipmentCategories = [
+	{ href: '/laboratories-and-equipment/', label: 'Przegląd laboratoriów i sprzętu' },
+	{ href: '/laboratories-and-equipment/photovoltaic/', label: 'Photovoltaic (PV) Systems' },
+	{ href: '/laboratories-and-equipment/wind/', label: 'Wind Energy Systems' },
+	{ href: '/laboratories-and-equipment/biogas/', label: 'Biogas Systems' },
+	{ href: '/laboratories-and-equipment/heat/', label: 'Heat Systems' },
+	{ href: '/laboratories-and-equipment/algae/', label: 'Algae Systems' },
+	{ href: '/laboratories-and-equipment/engine-bench/', label: 'Engine Bench' },
+	{ href: '/laboratories-and-equipment/house/', label: 'House Systems' },
+];
+---
+
+<header id="top" class="site-header">
+	<div class="container header-inner">
+		<a class="brand" href="/">Katedra Inżynierii Odnawialnych Źródeł Energii</a>
+		<button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-navigation">
+			Menu
+		</button>
+		<nav id="primary-navigation" class="nav-menu" data-nav data-open="false" aria-label="Główna nawigacja">
+			<ul class="nav-list">
+				<li><a href="/">Strona główna</a></li>
+				<li class="nav-item--dropdown" data-dropdown>
+					<button class="nav-link--toggle" type="button" data-dropdown-toggle aria-expanded="false">
+						Laboratoria i sprzęt
+						<span aria-hidden="true">▾</span>
+					</button>
+					<ul class="nav-submenu" data-dropdown-menu>
+						{equipmentCategories.map((category) => (
+							<li><a href={category.href}>{category.label}</a></li>
+						))}
+					</ul>
+				</li>
+				<li><a href="/projects/">Projekty</a></li>
+				<li><a href="/colaboration/">Współpraca</a></li>
+				<li><a href="/educators/">Kadra</a></li>
+				<li><a href="/sponsors/">Sponsorzy</a></li>
+				<li><a href="/contacts/">Kontakty</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<script type="module">
+	const navToggle = document.querySelector('[data-nav-toggle]');
+	const navMenu = document.querySelector('[data-nav]');
+	const dropdown = document.querySelector('[data-dropdown]');
+	const dropdownToggle = document.querySelector('[data-dropdown-toggle]');
+	const dropdownMenu = document.querySelector('[data-dropdown-menu]');
+
+	const closeDropdown = () => {
+		if (dropdown) {
+			dropdown.setAttribute('data-open', 'false');
+		}
+		if (dropdownToggle) {
+			dropdownToggle.setAttribute('aria-expanded', 'false');
+		}
+	};
+
+	const closeNavMenu = () => {
+		if (navMenu && navToggle) {
+			navMenu.setAttribute('data-open', 'false');
+			navToggle.setAttribute('aria-expanded', 'false');
+		}
+	};
+
+	navToggle?.addEventListener('click', () => {
+		const isOpen = navMenu?.getAttribute('data-open') === 'true';
+		const nextState = (!isOpen).toString();
+		navMenu?.setAttribute('data-open', nextState);
+		navToggle.setAttribute('aria-expanded', nextState);
+
+		if (isOpen) {
+			closeDropdown();
+		}
+	});
+
+	dropdownToggle?.addEventListener('click', () => {
+		const isOpen = dropdown?.getAttribute('data-open') === 'true';
+		const nextState = (!isOpen).toString();
+		dropdown?.setAttribute('data-open', nextState);
+		dropdownToggle.setAttribute('aria-expanded', nextState);
+	});
+
+	window.addEventListener('click', (event) => {
+		const target = event.target;
+		if (
+			dropdown &&
+			dropdownToggle &&
+			dropdownMenu &&
+			target instanceof Node &&
+			!dropdown.contains(target)
+		) {
+			closeDropdown();
+		}
+	});
+
+	window.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape') {
+			closeDropdown();
+			closeNavMenu();
+		}
+	});
+
+	if (navMenu) {
+		navMenu.querySelectorAll('a').forEach((link) => {
+			link.addEventListener('click', () => {
+				closeDropdown();
+				closeNavMenu();
+			});
+		});
+	}
+</script>
+

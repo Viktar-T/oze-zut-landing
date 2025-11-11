@@ -1,0 +1,1 @@
+Add basic modern styling: readable font, centered content, responsive layout, max-width container, subtle background, and highlight links. Keep it lightweight and accessible.
